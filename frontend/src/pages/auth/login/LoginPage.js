@@ -41,7 +41,7 @@ const LoginPage = () => {
 							name='username'
 							onChange={handleInputChange}
 							value={formData.username}
-						/>
+						/> 
 					</label>
 
 					<label className='input input-bordered rounded flex items-center gap-2'>

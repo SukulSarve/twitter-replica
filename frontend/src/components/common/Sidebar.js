@@ -1,4 +1,5 @@
 import XSvg from "../svgs/X";
+import img from "../../avatars/boy1.png";
 
 import { MdHomeFilled } from "react-icons/md";
 import { IoNotifications } from "react-icons/io5";
@@ -8,9 +9,9 @@ import { BiLogOut } from "react-icons/bi";
 
 const Sidebar = () => {
 	const data = {
-		fullName: "John Doe",
-		username: "johndoe",
-		profileImg: "/avatars/boy1.png",
+		fullName: "Sukul Sarve",
+		username: "Sukul_007",
+		profileImg: img,
 	};
 
 	return (
