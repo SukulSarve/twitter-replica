@@ -4,7 +4,7 @@ import {signup,login,logout, getme} from "../controllers/auth.controller.js"
 
 const router = express.Router();
 
-router.get('/me',protectRoute,getme);
+router.get('/getme',protectRoute,getme);
 
 router.post('/signup',signup);
 
