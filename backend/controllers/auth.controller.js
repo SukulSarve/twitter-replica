@@ -87,6 +87,7 @@ export const login = async (req,res)=>{
         
 
         generateTokenAndSetCookie(user._id,res);
+        console.log("adsfsdf", req.cookies.jwt_token);
         res.status(201).json({
             _id:user._id,
             fullName:user.fullName,
@@ -107,7 +108,7 @@ export const login = async (req,res)=>{
 
 export const logout = async (req,res)=>{
     try {
-        res.cookie("jwt","",{maxAge:0});
+        res.cookie("jwt_token","",{maxAge:0});
         res.status(200).json({message:"succesfully looged out"})
     } catch (error) {
         console.log("error in signup controller",error.message);
