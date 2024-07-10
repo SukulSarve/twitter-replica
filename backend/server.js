@@ -23,7 +23,7 @@ const app = express();
 const PORT = process.env.PORT
 
 // console.log(process.env.MONGO_URI);
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
 
 app.use(express.json());  //to parse req.body
