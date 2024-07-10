@@ -13,7 +13,10 @@ function App() {
     queryKey:['authUser'],
     queryFn: async ()=>{
       try {
-				const res = await fetch("http://localhost:5000/api/auth/getme");
+				const res = await fetch("http://localhost:5000/api/auth/getme",{
+					withCredentials:true,
+					credentials:'include'
+				});
 	
 				const data = await res.json();
 				if (!res.ok) {
