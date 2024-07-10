@@ -5,10 +5,14 @@ export const generateTokenAndSetCookie = (userId,res) =>{
         expiresIn:'15d'
     })
 
+    console.log("genreateToken : ",token)
+
     res.cookie("jwt_token",token,{
         maxAge:7 * 24 * 60 * 60 * 1000,
         httpOnly:true,
-        smaeSite:"strict",
-        secure:process.env.NODE_ENV !=="devlopment",
-    })
+        smaeSite:"none",
+        // secure:process.env.NODE_ENV !=="devlopment",
+    });
+
+    console.log("cookie : ",res.cookie.jwt_token);
 }
