@@ -5,7 +5,7 @@ import XSvg from "../../../components/svgs/X";
 
 import { MdOutlineMail } from "react-icons/md";
 import { MdPassword } from "react-icons/md";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 const LoginPage = () => {
@@ -14,6 +14,7 @@ const LoginPage = () => {
 		password: "",
 	});
 
+	const queryClient = useQueryClient();
 	const{mutate:loginMutation,isError,error,isPending} = useMutation({
 		mutationFn: async({username,password})=>{
 			try {
@@ -23,7 +24,8 @@ const LoginPage = () => {
 						"Content-Type": "application/json",
 					},
 					body: JSON.stringify({ username, password }),
-					// credentials: "include",
+					withCredentials:true,
+					credentials: "include",
 				});
 	
 				const data = await res.json();
@@ -39,7 +41,8 @@ const LoginPage = () => {
 			}
 		},
 		onSuccess:()=>{
-			toast.success("Logged in succesfully");
+			// refetch the authuser
+			queryClient.invalidateQueries({queryKey:["authUser"]});
 		},
 		onError:(error)=>{
 			toast.error(error.message||"something went wrong");
