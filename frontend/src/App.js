@@ -27,6 +27,7 @@ function App() {
         console.log("auth user is here:", data);
         return data;
       } catch (error) {
+
         console.log("no token");
         console.log(error.message);
         throw error;
