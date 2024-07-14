@@ -23,6 +23,7 @@ const app = express();
 const PORT = process.env.PORT
 
 // console.log(process.env.MONGO_URI);
+
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
 
@@ -30,10 +31,17 @@ app.use(express.json());  //to parse req.body
 app.use(express.urlencoded({extended:true}));
 
 app.use(cookieParser());  // to get the cookie in differnt function like in the protectRoute
+
 app.use(cors({
     origin: 'http://localhost:3000', // Your frontend origin
     credentials: true, // Enable credentials (cookies)
   }));
+
+app.use(express.json({limit:"5mb"}));  //to parse req.body
+app.use(express.urlencoded({extended:true}));
+
+app.use(cookieParser());  // to get the cookie in differnt function like in the protectRoute
+
 
 
 app.use("/api/auth",authRoute);
