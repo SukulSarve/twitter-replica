@@ -28,7 +28,7 @@ app.use(cors({
     credentials: true, // Enable credentials (cookies)
   }));
 
-app.use(express.json());  //to parse req.body
+app.use(express.json({limit:"5mb"}));  //to parse req.body
 app.use(express.urlencoded({extended:true}));
 
 app.use(cookieParser());  // to get the cookie in differnt function like in the protectRoute

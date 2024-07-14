@@ -97,7 +97,7 @@ export const getSuggestedProfile = async (req,res)=>{
 }
 
 export const updateUser = async (req,res)=>{
-    const{fullname,username,email,currentPassword,newPassword,bio,link} = req.body;
+    const{fullName,username,email,currentPassword,newPassword,bio,link} = req.body;
     let{profileimg,coverimg} = req.body;
     const userId = req.user._id;
 
@@ -135,7 +135,7 @@ export const updateUser = async (req,res)=>{
             coverimg = uploadedResponse;
         }
 
-        user.fullname = fullname || user.fullname;
+        user.fullName = fullName || user.fullName;
         user.email = email || user.email;
         user.username = username ||  user.username;
         user.bio = bio || user.bio;
